@@ -25,8 +25,9 @@ public class SpringbootcrudApplication {
 		 System.out.println(save);
 		 
 		 // Read 
-		 
-		 studentRepository.findAll();
+//		 
+		 Iterable<Student> all = studentRepository.findAll();
+	 all.forEach(Stu->System.out.println(Stu));	 
 		 
 
 	}
