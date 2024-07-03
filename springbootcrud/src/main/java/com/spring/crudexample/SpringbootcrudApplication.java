@@ -1,5 +1,7 @@
 package com.spring.crudexample;
 
+import java.util.Optional;
+
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,17 +19,39 @@ public class SpringbootcrudApplication {
 		 
 		 
          //CREATE 
-		 Student student = new Student();
-		 student.setId(1);
-		 student.setName("sonali");
-		 student.setCity("pune");
-		 Student save = studentRepository.save(student);
-		 System.out.println(save);
+		     Student student = new Student();
+		     student.setId(1);
+			 student.setName("sonali");
+			 student.setCity("pune");
+			 Student save = studentRepository.save(student);
+			 System.out.println(save);
 		 
-		 // Read 
-//		 
-		 Iterable<Student> all = studentRepository.findAll();
-	 all.forEach(Stu->System.out.println(Stu));	 
+		  // READ 
+	 
+			 Iterable<Student> all = studentRepository.findAll();
+	         all.forEach(Stu->System.out.println(Stu));	 
+	 
+	      // UPDATE 
+	 
+			 Optional<Student> byId = studentRepository.findById(1);
+			 Student student2 = byId.get();
+			 student2.setCity("mumbaii");
+			 
+		     Student save1 = studentRepository.save(student2);
+		     System.out.println(save1);
+		     
+	  
+	      // DELETE
+	     
+		  studentRepository.deleteById(2);
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 		 
 
 	}
